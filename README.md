@@ -12,3 +12,5 @@ Some of the basic functionalities included in this package are:
 ## Hardware Setup (Work in progress)
 
 ## Software Setup (Work in progress)
+
+For any questions regarding the code or setup, feel free to drop an email to mohit.srinivasan@gatech.edu
