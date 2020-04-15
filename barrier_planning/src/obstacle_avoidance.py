@@ -4,7 +4,7 @@ Description: This code implementes a finite-time control barrier function
 	     to drive the turtlebot from an initial condition to a desired goal region
 	     while avoiding the cylindrical obstacle
 Author:      Mohit Srinivasan
-Date: 	     04/06/2020
+Date: 	     04/15/2020
 """
 
 import rospy
@@ -49,12 +49,12 @@ def go_to_region():
 		h_obstacle = np.dot(np.dot(np.transpose(x_state - C_obstacle), P_obstacle), x_state - C_obstacle) - 1.0
 
 		# Quadratic program declarations
-		A_goal = np.dot(2 * np.transpose(x_state - C_goal), P_goal) 		# Constraint for
+		A_goal = np.dot(2 * np.transpose(x_state - C_goal), P_goal) 			# Constraint for
 		B_goal = gamma * np.sign(h_goal) * (np.absolute(h_goal)**0.4)	        # goal region
 		A_goal = np.append(A_goal, 0)		
 				
 		A_obs = np.dot(-2.0 * np.transpose(x_state - C_obstacle), P_obstacle) 	# Constraint for
-		B_obs = gamma * (h_obstacle)**3						# obstacle
+		B_obs = gamma * (h_obstacle)**3											# obstacle
 		A_obs = np.append(A_obs, -1)
 
 		A = np.vstack((A_goal, A_obs))
